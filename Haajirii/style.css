@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+}
+table {
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgb(186, 186, 186);
+  text-align: center;
+}
+table thead {
+  background: #1f365a;
+  color: #eeeeee;
+}
+th {
+  border: 1px solid #2c699e;
+}
+
+tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+tbody tr:nth-child(even) {
+  background: #ecf6ff;
+}
+.name-col {
+  min-width: 200px;
+  text-align: left;
+}
+.date th {
+  font-size: 13px;
+  font-weight: 100;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #1f365a;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.controls button {
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  background: #3c87c8;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #eeeeee;
+}
