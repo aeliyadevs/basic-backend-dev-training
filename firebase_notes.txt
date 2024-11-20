@@ -1,0 +1,5 @@
+1. Collection
+-- Students
+
+2. Document
+-- single record

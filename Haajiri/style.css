@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 table {
   border-collapse: collapse;
@@ -38,6 +40,9 @@ h1 {
   color: #1f365a;
   margin: 0;
 }
+h2 {
+  text-align: center;
+}
 
 .wrapper {
   max-width: 1200px;
@@ -60,4 +65,43 @@ h1 {
   font-size: 14px;
   letter-spacing: 1px;
   color: #eeeeee;
+}
+
+/* Form styles */
+input {
+  padding: 15px;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background: #1f365a;
+  color: #eeeeee;
+  max-width: 150px;
+  margin: 0 auto;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.modal {
+  width: 100%;
+  height: 100vh;
+  background: #000000b9;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.add-student-modal {
+  background: #eeeeee;
+  width: 400px;
+  padding: 20px 50px 30px 50px;
+  border-radius: 10px;
+}
+.add-student-modal #student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

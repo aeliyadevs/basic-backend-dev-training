@@ -1,0 +1,20 @@
+Hajirii App Planning
+
+Entity
+1. User
+    - Username
+    - Email Address
+    - password
+2. Courses
+    - Course Id
+    - Course Title
+    - Course Description
+    - Start Date
+    - End Date
+    - Assigned Teacher
+3. Students
+    - Student Id
+    - First Name
+    - Middle Name
+    - Last Name
+    - Course Id

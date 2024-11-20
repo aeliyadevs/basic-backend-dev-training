@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Haajirii</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- <script type="module" src="main.js"></script> -->
   </head>
   <body>
     <div class="wrapper">
@@ -15,22 +16,9 @@
       </div>
       <table cellspacing="0" cellpadding="10">
         <thead>
-          <!-- <tr>
-              <th colspan="2"></th>
-              <th colspan="9">Attendence <br />(November 2024)</th>
-            </tr> -->
           <tr>
             <th rowspan="2">S.N.</th>
             <th rowspan="2" class="name-col">Student Name</th>
-            <!-- <th>Nov 12</th>
-              <th>Nov 13</th>
-              <th>Nov 14</th>
-              <th>Nov 15</th>
-              <th>Nov 16</th>
-              <th>Nov 17</th>
-              <th>Nov 18</th>
-              <th>Nov 19</th>
-              <th>Nov 20</th> -->
             <th colspan="10">
               Attendence (November 2024)
               <tr class="date">
@@ -47,8 +35,8 @@
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
+        <tbody id="studentList">
+          <!-- <tr>
             <td>1</td>
             <td class="name-col">Sunil Tamang</td>
             <td>P</td>
@@ -138,10 +126,39 @@
             <td>P</td>
             <td>P</td>
             <td>P</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
+    <div class="modal">
+      <div class="add-student-modal">
+        <h2>Student Info</h2>
+        <form id="student-form">
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            name="middleName"
+            id="middleName"
+            placeholder="Middle Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            required
+          />
+          <input type="submit" value="Add Student" />
+        </form>
+      </div>
+    </div>
+    <ul id="studentList"></ul>
     <script type="module" src="main.js"></script>
   </body>
 </html>
