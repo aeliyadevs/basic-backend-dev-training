@@ -2,6 +2,27 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  background: #1f365a;
+}
+h1,
+h2,
+h3 {
+  margin: 0 0 12px 0;
+}
+
+h1 {
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #1f365a;
 }
 table {
   border-collapse: collapse;
@@ -31,24 +52,17 @@ tbody tr:nth-child(even) {
   font-weight: 100;
 }
 
-h1 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 4rem;
-  font-weight: 900;
-  letter-spacing: 4px;
-  color: #1f365a;
-  margin: 0;
-}
-h2 {
-  text-align: center;
-}
-
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .controls {
@@ -104,4 +118,36 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+/* Courses styles */
+.courses {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 30px;
+}
+.courses .course-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 6px;
+}
+.courses .course-card .status {
+  padding: 3px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border-radius: 15px;
+  display: inline-block;
+  /* margin-bottom: 10px; */
+  /* transform: translate(-42px, -15px); */
+}
+.courses .course-card .status.running {
+  background: #00a640;
+}
+.courses .course-card .status.completed {
+  background: #00d0ff;
+}
+.courses .course-card .options {
+  display: flex;
+  gap: 12px;
 }

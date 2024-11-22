@@ -1,5 +1,16 @@
 1. Collection
--- Students
+-- set of similar records
 
 2. Document
 -- single record
+
+Firebase setup steps
+Step 1 - Create HTML page
+Step 2 - Create and link CSS for style
+Step 3 - Create JS file and link as type module (to support imports inside JS)
+----------- Firebase Setup ------------
+Step 4 - Add new collection and respective documents in firebase
+Step 5 - Copy-paste configuration script from firebase project to JS file
+Step 6 - Import firebase methods (getFirestoe, collection, getDocs)
+Step 7 - Check if the data is fetched using console.log()
+Step 8 - Display data on the HTML page

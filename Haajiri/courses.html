@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haajirii</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div class="wrapper"> -->
+    <h1>Haajirii</h1>
+    <div class="controls">
+      <button id="new-course-btn" class="primary-btn">Add new course</button>
+      <!-- <button id="new-student-btn" class="primary-btn">Add new student</button> -->
+      <!-- <button>Take Attendance</button> -->
+    </div>
+    <div class="container courses" id="courses">
+      <!-- <div class="course-card">
+        <h3 class="course-title">Basic Web Development Course</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa aliquam
+          similique suscipit?
+        </p>
+        <div class="options">
+          <button class="primary-btn">Manage Students</button>
+          <button class="primary-btn">Take Attendance</button>
+        </div>
+      </div>
+      <div class="course-card">
+        <h3 class="course-title">Basic Backend Development Course</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa aliquam
+          similique suscipit?
+        </p>
+        <div class="options">
+          <button class="primary-btn">Manage Students</button>
+          <button class="primary-btn">Take Attendance</button>
+        </div>
+      </div> -->
+    </div>
+    <!-- <div class="container">
+      <table cellspacing="0" cellpadding="10">
+        <thead>
+          <tr>
+            <th rowspan="2">S.N.</th>
+            <th rowspan="2" class="name-col">Student Name</th>
+            <th colspan="10">
+              Attendance (November 2024)
+              <tr class="date">
+                <th>Nov 12</th>
+                <th>Nov 13</th>
+                <th>Nov 14</th>
+                <th>Nov 15</th>
+                <th>Nov 16</th>
+                <th>Nov 17</th>
+                <th>Nov 18</th>
+                <th>Nov 19</th>
+                <th>Nov 20</th>
+              </tr>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="name-col">Sunil Tamang</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="name-col">Min Devkota</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="name-col">Khagendra Budha</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="name-col">Deepak Bohora</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="name-col">Prabesh Upadhya</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="name-col">Sunil Tamang</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class="name-col">Migma Lama</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+            <td>P</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+    <!-- </div> -->
+    <div class="modal" id="add-student-modal">
+      <div class="modal-content">
+        <img
+          src="./assets/icons/close.svg"
+          class="close-icon"
+          alt=""
+          srcset=""
+        />
+        <h2>Student Info</h2>
+        <form class="form" id="student-form">
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            name="middleName"
+            id="middleName"
+            placeholder="Middle Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            required
+          />
+          <select name="courseId" id="courseId">
+            <option disabled default>Select Course</option>
+          </select>
+          <input type="submit" value="Add Student" />
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="add-course-modal">
+      <div class="modal-content">
+        <img
+          src="./assets/icons/close.svg"
+          class="close-icon"
+          alt=""
+          srcset=""
+        />
+        <h2>Course Info</h2>
+        <form class="form" id="course-form">
+          <label for="courseTitle">Course Title</label>
+          <input
+            type="text"
+            name="courseTitle"
+            id="courseTitle"
+            placeholder="Course Title"
+            required
+          />
+          <label for="courseDesc">Course Description</label>
+          <input
+            type="text"
+            name="courseDesc"
+            id="courseDesc"
+            placeholder="Course Description"
+          />
+          <label for="startDate">Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            id="startDate"
+            placeholder="Start Date"
+          />
+          <input type="submit" value="Add Course" />
+        </form>
+      </div>
+    </div>
+    <!-- <div class="popup">
+      <strong><span id="record-type">Course</span></strong
+      >&nbsp;added successfully!
+    </div> -->
+    <script type="module" src="courses.js"></script>
+  </body>
+</html>
