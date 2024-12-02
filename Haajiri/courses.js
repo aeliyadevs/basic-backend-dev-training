@@ -24,12 +24,36 @@ courses.forEach((course) => {
 
   const h3 = document.createElement("h3");
   h3.innerHTML = course.data().courseTitle;
+  courseDiv.appendChild(h3);
+
+  const status = document.createElement("span");
+  status.className = "status " + course.data().status;
+  status.innerHTML = course.data().status;
+  courseDiv.appendChild(status);
 
   const desc = document.createElement("p");
   desc.innerHTML = course.data().courseDesc;
-
-  courseDiv.appendChild(h3);
   courseDiv.appendChild(desc);
+
+  const startDate = document.createElement("p");
+  startDate.className = "bold";
+  startDate.innerHTML = "Start Date: " + course.data().startDate;
+  courseDiv.appendChild(startDate);
+
+  const instructor = document.createElement("p");
+  instructor.className = "bold";
+  instructor.innerHTML = "Instructor: " + course.data().instructor;
+  courseDiv.appendChild(instructor);
+
+  const controls = document.createElement("div");
+  controls.className = "controls";
+  const manageBtn = document.createElement("a");
+  manageBtn.innerHTML = "Manage Students";
+  controls.appendChild(manageBtn);
+  const attendanceBtn = document.createElement("a");
+  attendanceBtn.innerHTML = "Take Attendance";
+  controls.appendChild(attendanceBtn);
+  courseDiv.appendChild(controls);
 
   document.getElementById("courses").appendChild(courseDiv);
 });
@@ -49,3 +73,8 @@ courses.forEach((course) => {
 //   `;
 //   coursesDiv.appendChild(card);
 // });
+
+// Steps for form submission
+// 1. Create a form
+// 2. Add eventlistener "submit" and display data in the console
+// 3. Submit the data to firebase using "addDoc"

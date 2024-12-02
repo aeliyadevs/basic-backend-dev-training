@@ -53,6 +53,10 @@ tbody tr:nth-child(even) {
   font-size: 13px;
   font-weight: 100;
 }
+.center {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
 .wrapper {
   max-width: 1200px;
@@ -66,14 +70,20 @@ tbody tr:nth-child(even) {
   padding: 0 15px;
   margin: 0 auto;
 }
-
-.controls {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+.primary-btn {
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  background: #3c87c8;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #eeeeee;
 }
-.controls button {
+.controls {
+  display: flex;
+  gap: 10px;
+}
+.controls a {
   padding: 8px 15px;
   border-radius: 4px;
   border: none;
@@ -84,8 +94,9 @@ tbody tr:nth-child(even) {
 }
 
 /* Form styles */
-input {
-  padding: 15px;
+input,
+select {
+  padding: 12px;
   width: 100%;
   border-radius: 3px;
   border: none;
@@ -143,13 +154,44 @@ input[type="submit"] {
   /* margin-bottom: 10px; */
   /* transform: translate(-42px, -15px); */
 }
+
+.courses .course-card .status.planning {
+  background: #fec70f;
+}
 .courses .course-card .status.running {
   background: #00a640;
 }
 .courses .course-card .status.completed {
-  background: #00d0ff;
+  background: #009dff;
+}
+.bold {
+  font-weight: 700;
 }
 .courses .course-card .options {
-  display: flex;
+  /* display: flex; */
   gap: 12px;
+}
+
+.course-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.course-form form {
+  background: #ffffff;
+  padding: 30px;
+  max-width: 600px;
+  border-radius: 10px;
+}
+.course-form form h2 {
+  font-size: 30px;
+}
+.course-form form input,
+.course-form form select {
+  border: 1px solid gray;
+  margin-bottom: 12px;
+}
+.course-form form label {
+  font-weight: 700;
 }
