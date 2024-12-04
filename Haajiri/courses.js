@@ -4,6 +4,7 @@ import {
   getFirestore,
   collection,
   getDocs,
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Import forebase configuration details
@@ -18,7 +19,7 @@ const db = getFirestore(app);
 const courses = await getDocs(collection(db, "courses"));
 const coursesDiv = document.getElementById("courses");
 courses.forEach((course) => {
-  console.log(course.data());
+  // console.log(course.data());
   const courseDiv = document.createElement("div");
   courseDiv.className = "course-card";
 
@@ -78,3 +79,26 @@ courses.forEach((course) => {
 // 1. Create a form
 // 2. Add eventlistener "submit" and display data in the console
 // 3. Submit the data to firebase using "addDoc"
+
+// Add New Doc
+const courseForm = document.getElementById("course-form");
+courseForm.addEventListener("submit", addCourse);
+function addCourse(event) {
+  event.preventDefault();
+
+  const data = {
+    courseTitle: event.target.courseTitle.value,
+    courseDesc: event.target.courseDesc.value,
+    startDate: event.target.startDate.value,
+    instructor: event.target.instructor.value,
+    status: event.target.status.value,
+  };
+
+  console.log(data);
+  try {
+    addDoc(collection(db, "courses"), data);
+    console.log("Success");
+  } catch (error) {
+    console.log(error);
+  }
+}
