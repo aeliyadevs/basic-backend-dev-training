@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Student - Haajirii</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Haajirii</h1>
+    <div class="center">
+      <a href="students.html"
+        ><button id="new-course-btn" class="primary-btn">
+          Back to students
+        </button></a
+      >
+    </div>
+    <div class="course-form">
+      <form class="form" id="student-form" action="index.html">
+        <h2>Add Student</h2>
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          placeholder="First Name"
+          required
+        />
+        <label for="middleName">Middle Name</label>
+        <input
+          type="text"
+          name="middleName"
+          id="middleName"
+          placeholder="Middle Name"
+        />
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="Last Name"
+        />
+        <label for="course">Select Course</label>
+        <select name="course" id="course">
+          <option value="1" disabled selected>Select Course</option>
+          <option value="2">Graphics Design</option>
+          <option value="3">Backend Course</option>
+          <option value="4">Frontend Course</option>
+          <option value="5">Video Editing</option>
+        </select>
+        <input type="submit" value="Add Student" />
+      </form>
+    </div>
+    <script type="module" src="students.js"></script>
+  </body>
+</html>

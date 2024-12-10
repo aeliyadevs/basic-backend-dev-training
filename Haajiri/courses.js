@@ -49,6 +49,7 @@ courses.forEach((course) => {
   const controls = document.createElement("div");
   controls.className = "controls";
   const manageBtn = document.createElement("a");
+  manageBtn.href = "./students.html";
   manageBtn.innerHTML = "Manage Students";
   controls.appendChild(manageBtn);
   const attendanceBtn = document.createElement("a");

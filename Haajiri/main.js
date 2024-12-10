@@ -27,11 +27,12 @@ console.log(database);
 
 const myStudents = await getDocs(collection(database, "students"));
 
+let count = 0;
 myStudents.forEach((student) => {
   // console.log(student.data());
   let studentRow = document.createElement("tr");
   let sn = document.createElement("td");
-  sn.innerHTML = 1;
+  sn.innerHTML = ++count;
   studentRow.appendChild(sn);
 
   let studentName = document.createElement("td");
