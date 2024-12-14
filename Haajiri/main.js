@@ -11,6 +11,8 @@ import {
   getFirestore,
   collection,
   getDocs,
+  where,
+  query,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 import firebaseConfig from "./config.js";
@@ -25,7 +27,12 @@ const database = getFirestore(app);
 
 console.log(database);
 
-const myStudents = await getDocs(collection(database, "students"));
+const myStudents = await getDocs(
+  query(
+    collection(database, "students"),
+    where("courseId", "==", "bv6CP8JntgJvtiQuX5Wv")
+  )
+);
 
 let count = 0;
 myStudents.forEach((student) => {

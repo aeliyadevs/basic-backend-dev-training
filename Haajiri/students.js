@@ -26,7 +26,6 @@ function addStudent(e) {
     course: e.target.course.value,
   };
   //   console.log(data);
-
   try {
     addDoc(collection(db, "students"), data);
     alert("Student added successfully.");
