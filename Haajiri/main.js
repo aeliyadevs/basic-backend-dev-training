@@ -27,10 +27,11 @@ const database = getFirestore(app);
 
 console.log(database);
 
+// const myStudents = await getDocs(collection(database, "students"));
 const myStudents = await getDocs(
   query(
     collection(database, "students"),
-    where("courseId", "==", "bv6CP8JntgJvtiQuX5Wv")
+    where("courseId", "==", "4ifuhGYEfkKYdvy7rl2T")
   )
 );
 

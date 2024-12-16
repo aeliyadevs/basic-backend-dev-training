@@ -15,6 +15,16 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = getFirestore(app);
 
+const courseDropdown = document.getElementById("course");
+const courses = await getDocs(collection(db, "courses"));
+courses.forEach((course) => {
+  // console.log(course.data());
+  const option = document.createElement("option");
+  option.innerText = course.data().courseTitle;
+  option.value = course.id;
+  courseDropdown.appendChild(option);
+});
+
 const form = document.getElementById("student-form");
 form.addEventListener("submit", addStudent);
 function addStudent(e) {
@@ -23,7 +33,7 @@ function addStudent(e) {
     firstName: e.target.firstName.value,
     middleName: e.target.middleName.value,
     lastName: e.target.lastName.value,
-    course: e.target.course.value,
+    courseId: e.target.course.value,
   };
   //   console.log(data);
   try {
