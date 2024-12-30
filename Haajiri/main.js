@@ -25,14 +25,14 @@ import firebaseConfig from "./config.js";
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 
-console.log(database);
+// console.log(database);
 
 // const myStudents = await getDocs(collection(database, "students"));
+const url = new URL(window.location.href);
+const params = new URLSearchParams(url.search);
+const courseId = params.get("courseId");
 const myStudents = await getDocs(
-  query(
-    collection(database, "students"),
-    where("courseId", "==", "4ifuhGYEfkKYdvy7rl2T")
-  )
+  query(collection(database, "students"), where("courseId", "==", courseId))
 );
 
 let count = 0;
@@ -77,3 +77,9 @@ myStudents.forEach((student) => {
 // }
 
 // document.getElementById("student-form").addEventListener("submit", addStudent);
+
+// const myUrl = new URL(window.location.href);
+// const parameters = new URLSearchParams(myUrl.search);
+// console.log(myUrl);
+// console.log(parameters.get("courseId"));
+// const selectedCourse = parameters.get("courseId");
