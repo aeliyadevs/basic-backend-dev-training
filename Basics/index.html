@@ -13,84 +13,118 @@ HTML, CSS and JavaScript are tools for designing websites.
   </head>
   <body>
     <!-- Headings -->
-    <h1>Intoduction</h1>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
-    <h2>Heading 2</h2>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
-    <h3>Heading 3</h3>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
-    <h4>Heading 4</h4>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
-    <h5>Heading 5</h5>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
-    <h6>Heading 6</h6>
-    <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+    <header>This is my header</header>
+    <main>
+      <h1>Intoduction</h1>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+      <h2>Heading 2</h2>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+      <h3>Heading 3</h3>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+      <h4>Heading 4</h4>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+      <h5>Heading 5</h5>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
+      <h6>Heading 6</h6>
+      <p>Hello! My name is Aeliya Tamang. I am from Nepal.</p>
 
-    <!-- Lists -->
-    <!-- Ordered Lists -->
-    <ol>
-      <li>List item</li>
-      <li>List item</li>
-      <li>List item</li>
-      <li>List item</li>
-    </ol>
-    <!-- Unordered Lists -->
-    <ul>
-      <li>List Item</li>
-      <li>List Item</li>
-      <li>List Item</li>
-      <li>List Item</li>
-    </ul>
-    <!-- Image -->
-    <img
-      src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg"
-      alt="cat wearing glasses"
-    />
-    <!-- Video -->
-    <video width="320" height="240" controls>
-      <source
-        src="https://videos.pexels.com/video-files/14637339/14637339-uhd_2560_1440_30fps.mp4"
-        type="video/mp4"
+      <!-- Lists -->
+      <!-- Ordered Lists -->
+      <ol>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+      </ol>
+      <!-- Unordered Lists -->
+      <ul>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+      </ul>
+      <!-- Image -->
+      <img
+        src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg"
+        alt="cat wearing glasses"
       />
-      <source src="movie.ogg" type="video/ogg" />
-      Your browser does not support the video tag.
-    </video>
+      <!-- Video -->
+      <video width="320" height="240" controls>
+        <source
+          src="https://cdn.pixabay.com/video/2024/09/24/233037_large.mp4"
+          type="video/mp4"
+        />
+        <source src="movie.ogg" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video>
 
-    <!-- Tables -->
-    <table border="1" cellpadding="10" cellspacing="0">
-      <thead>
-        <tr>
-          <th>S.N.</th>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Contact No.</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Roshan</td>
-          <td>Lalitpur</td>
-          <td>9876543210</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Migma</td>
-          <td>Ktm</td>
-          <td>1234567890</td>
-        </tr>
-      </tbody>
-    </table>
+      <!-- Tables -->
+      <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+          <tr>
+            <th>S.N.</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Contact No.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Roshan</td>
+            <td>Lalitpur</td>
+            <td>9876543210</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Migma</td>
+            <td>Ktm</td>
+            <td>1234567890</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Form -->
-    <form>
-      <label for="fullname">Full Name</label>
-      <input type="text" name="fullname" />
-      <!-- 
-      task
-        - input types (number, email, password, date, address, tel, time, file, submit)
-        - div, span, section
-      -->
-    </form>
+      <div>
+        <!-- Form -->
+        <form method="POST" action="" class="my-form">
+          <label for="fullname">Full Name</label>
+          <input type="text" name="fullname" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="" />
+
+          <label for="gender">Select Gender</label>
+          Male
+          <input type="radio" name="gender" value="male" id="male" /> Female
+          <input type="radio" name="gender" value="female" id="female" /> Other
+          <input type="radio" name="gender" value="other" id="other" />
+
+          <label><strong>Select Hobbies</strong></label>
+          <input type="checkbox" name="hobbies" id="" value="singing" /> Singing
+          <input type="checkbox" name="hobbies" id="" value="dancing" /> Dancing
+          <input type="checkbox" name="hobbies" id="" value="football" />
+          Football <input type="checkbox" name="hobbies" id="" /> Basketball
+          <input type="checkbox" name="hobbies" id="" /> Painting
+          <input type="checkbox" name="hobbies" id="" /> Karate
+          <input type="checkbox" name="hobbies" id="" /> Trekking
+
+          <label for="contact">Contact Number</label>
+          <input type="tel" name="contact" id="contact" />
+          <br />
+          <label for="dropdown">Select Country</label>
+          <select name="country" id="">
+            <option value="" disabled selected>Select your country</option>
+            <option value="Nepal">Nepal</option>
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="Bhutan">Bhutan</option>
+            <option value="Sri-Lanka">Sri Lanka</option>
+            <option value="Bangladesh">Bangladesh</option>
+          </select>
+          <input type="submit" value="Submit Now" />
+        </form>
+      </div>
+    </main>
+    <footer>This is my footer</footer>
+    <script src="main.js"></script>
   </body>
 </html>
