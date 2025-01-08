@@ -49,7 +49,11 @@ courses.forEach((course) => {
   const controls = document.createElement("div");
   controls.className = "controls";
   const manageBtn = document.createElement("a");
-  manageBtn.href = "./students.html?courseId=" + course.id;
+  manageBtn.href =
+    "./students.html?courseId=" +
+    course.id +
+    "&courseTitle=" +
+    course.data().courseTitle;
   manageBtn.innerHTML = "Manage Students";
   controls.appendChild(manageBtn);
   const attendanceBtn = document.createElement("a");
@@ -84,7 +88,7 @@ courses.forEach((course) => {
 // Add New Doc
 const courseForm = document.getElementById("course-form");
 courseForm.addEventListener("submit", addCourse);
-function addCourse(event) {
+async function addCourse(event) {
   event.preventDefault();
 
   const data = {
@@ -97,9 +101,31 @@ function addCourse(event) {
 
   console.log(data);
   try {
-    addDoc(collection(db, "courses"), data);
+    await addDoc(collection(db, "courses"), data);
     console.log("Success");
+    showAlert();
   } catch (error) {
     console.log(error);
   }
+}
+
+document.getElementById("new-course-btn").addEventListener("click", showForm);
+function showForm() {
+  const courseModal = document.getElementById("add-course-modal");
+  courseModal.classList.remove("hidden");
+}
+
+const modalClose = document.querySelectorAll(".close-icon");
+modalClose.forEach((icon) => {
+  icon.addEventListener("click", function () {
+    icon.parentElement.parentElement.classList.add("hidden");
+  });
+});
+
+function showAlert() {
+  document.getElementById("alert-popup").classList.remove("hidden");
+  const alertTimeout = setTimeout(function () {
+    document.getElementById("alert-popup").classList.add("hidden");
+    clearTimeout(alertTimeout);
+  }, 5000);
 }

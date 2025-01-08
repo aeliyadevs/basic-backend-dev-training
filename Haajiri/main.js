@@ -31,9 +31,11 @@ const database = getFirestore(app);
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const courseId = params.get("courseId");
+const courseTitle = params.get("courseTitle");
 const myStudents = await getDocs(
   query(collection(database, "students"), where("courseId", "==", courseId))
 );
+document.getElementById("course-title").innerHTML = courseTitle;
 
 let count = 0;
 myStudents.forEach((student) => {
@@ -44,6 +46,7 @@ myStudents.forEach((student) => {
   studentRow.appendChild(sn);
 
   let studentName = document.createElement("td");
+  studentName.className = "name-col";
   studentName.innerHTML =
     student.data().firstName + " " + student.data().lastName;
   studentRow.appendChild(studentName);

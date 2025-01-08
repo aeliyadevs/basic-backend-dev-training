@@ -24,10 +24,19 @@ h2 {
   text-align: center;
   color: #1f365a;
 }
+#course-title {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 35px;
+}
+button {
+  cursor: pointer;
+}
 table {
   border-collapse: collapse;
   border: 1px solid #2c699e;
-
   /* box-shadow: 0 0 10px rgb(186, 186, 186); */
   text-align: center;
 }
@@ -38,7 +47,6 @@ table thead {
 th {
   border: 1px solid #2c699e;
 }
-
 tbody tr:nth-child(odd) {
   background: #ffffff;
 }
@@ -71,11 +79,11 @@ tbody tr:nth-child(even) {
   margin: 0 auto;
 }
 .primary-btn {
-  padding: 8px 15px;
+  padding: 12px 15px;
   border-radius: 4px;
   border: none;
   background: #3c87c8;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   color: #eeeeee;
 }
@@ -94,32 +102,108 @@ tbody tr:nth-child(even) {
 }
 
 /* Form styles */
+label {
+  font-size: 16px;
+  font-weight: 600;
+}
 input,
 select {
   padding: 12px;
   width: 100%;
   border-radius: 3px;
   border: none;
+  background: #e2e2e2;
   box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 input[type="submit"] {
-  background: #1f365a;
-  color: #eeeeee;
-  max-width: 150px;
-  margin: 0 auto;
-  font-size: 14px;
-  letter-spacing: 1px;
+  cursor: pointer;
 }
-.modal {
+
+/* Popup Notification Styles */
+.popup {
+  /* background: #ffffff; */
+  width: 100%;
+  border-radius: 3px;
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  /* right: 15px; */
+  /* display: none; */
+  /* opacity: 0; */
+  /* transform: translateX(110%); */
+  transition: transform opacity 1s ease-in-out;
+  transition-duration: 500ms;
+}
+.popup .message {
+  width: 300px;
+  font-size: 17px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  color: #fff;
+}
+.popup .message.success {
+  background: #0bb14b;
+}
+.popup .message.failed {
+  background: red;
+}
+.popup.show {
+  opacity: 1;
+  transform: translateX(0);
+  display: block;
+}
+
+/* Popup Modal Styles */
+.modal-wrapper {
   width: 100%;
   height: 100vh;
   background: #000000b9;
   position: fixed;
   top: 0;
-  display: flex;
+  display: grid;
+  place-items: center;
+}
+.modal {
+  width: 560px;
+  padding: 30px;
+  border-radius: 8px;
+  background: #ffffff;
+  position: relative;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+}
+.hidden {
   display: none;
+}
+.modal .close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: 35px;
+}
+
+form .studentItem {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin: 10px 0;
+}
+form .studentItem p {
+  flex: 1;
+  margin: 5px;
+  font-size: 18px;
+}
+form .studentItem input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin: 0;
 }
 .add-student-modal {
   background: #eeeeee;
@@ -172,26 +256,28 @@ input[type="submit"] {
   gap: 12px;
 }
 
-.course-form {
+.course-form-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.course-form form {
   background: #ffffff;
-  padding: 30px;
-  max-width: 600px;
   border-radius: 10px;
 }
-.course-form form h2 {
-  font-size: 30px;
+.course-form-wrap form {
+  padding: 30px;
+  max-width: 600px;
 }
-.course-form form input,
-.course-form form select {
+.course-form-wrap form h2 {
+  font-size: 36px;
+  /* text-align: left; */
+}
+.course-form-wrap form input,
+.course-form-wrap form select {
   border: 1px solid gray;
+  margin-top: 6px;
   margin-bottom: 12px;
 }
-.course-form form label {
+.course-form-wrap form label {
   font-weight: 700;
 }

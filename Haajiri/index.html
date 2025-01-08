@@ -10,11 +10,10 @@
     <!-- <div class="wrapper"> -->
     <h1>Haajirii</h1>
     <div class="center">
-      <a href="course-form.html"
-        ><button id="new-course-btn" class="primary-btn">
-          Add new course
-        </button></a
-      >
+      <!-- <a href="course-form.html"
+        ><button class="primary-btn">Add new course</button></a
+      > -->
+      <button id="new-course-btn" class="primary-btn">Add new course</button>
       <!-- <button id="new-student-btn" class="primary-btn">Add new student</button> -->
       <!-- <button>Take Attendance</button> -->
     </div>
@@ -42,7 +41,7 @@
         </div>
       </div> -->
     </div>
-    <div class="modal" id="add-student-modal">
+    <!-- <div class="modal hidden" id="add-student-modal">
       <div class="modal-content">
         <img
           src="./assets/icons/close.svg"
@@ -78,47 +77,111 @@
           <input type="submit" value="Add Student" />
         </form>
       </div>
-    </div>
-    <div class="modal" id="add-course-modal">
+    </div> -->
+    <!-- <div class="modal hidden" id="add-course-modal">
+      <img src="./icons/close.svg" class="close-icon" alt="" srcset="" />
       <div class="modal-content">
-        <img
-          src="./assets/icons/close.svg"
-          class="close-icon"
-          alt=""
-          srcset=""
-        />
-        <h2>Course Info</h2>
-        <form class="form" id="course-form">
-          <label for="courseTitle">Course Title</label>
-          <input
-            type="text"
-            name="courseTitle"
-            id="courseTitle"
-            placeholder="Course Title"
-            required
-          />
-          <label for="courseDesc">Course Description</label>
-          <input
-            type="text"
-            name="courseDesc"
-            id="courseDesc"
-            placeholder="Course Description"
-          />
-          <label for="startDate">Start Date</label>
-          <input
-            type="date"
-            name="startDate"
-            id="startDate"
-            placeholder="Start Date"
-          />
-          <input type="submit" value="Add Course" />
-        </form>
+        <div class="course-form-wrap">
+          <form class="form" id="course-form" action="index.html">
+            <h2>Add Details</h2>
+            <label for="courseTitle">Course Title</label>
+            <input
+              type="text"
+              name="courseTitle"
+              id="courseTitle"
+              placeholder="Course Title"
+              required
+            />
+            <label for="courseDesc">Course Description</label>
+            <input
+              type="text"
+              name="courseDesc"
+              id="courseDesc"
+              placeholder="Course Description"
+            />
+            <label for="startDate">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              id="startDate"
+              placeholder="Start Date"
+            />
+            <label for="instructor">Instructor</label>
+            <input
+              type="text"
+              name="instructor"
+              id="instructor"
+              placeholder="Instructor"
+            />
+            <label for="status">Course Status</label>
+            <select name="status" id="status">
+              <option value="planning" disabled selected>Select Status</option>
+              <option value="planning">Planning</option>
+              <option value="running">Running</option>
+              <option value="completed">Completed</option>
+            </select>
+            <input type="submit" class="primary-btn" value="Add Course" />
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Add Course Modal -->
+    <div class="modal-wrapper hidden" id="add-course-modal">
+      <div class="modal">
+        <img src="./icons/close.svg" class="close-icon" alt="" srcset="" />
+        <div class="modal-content">
+          <h2>Add Course Details</h2>
+          <form id="course-form" action="index.html">
+            <label for="courseTitle">Course Title</label>
+            <input
+              type="text"
+              name="courseTitle"
+              id="courseTitle"
+              placeholder="Course Title"
+              required
+            />
+            <label for="courseDesc">Course Description</label>
+            <input
+              type="text"
+              name="courseDesc"
+              id="courseDesc"
+              placeholder="Course Description"
+            />
+            <label for="startDate">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              id="startDate"
+              placeholder="Start Date"
+            />
+            <label for="instructor">Instructor</label>
+            <input
+              type="text"
+              name="instructor"
+              id="instructor"
+              placeholder="Instructor"
+            />
+            <label for="status">Course Status</label>
+            <select name="status" id="status">
+              <option value="planning" disabled selected>Select Status</option>
+              <option value="planning">Planning</option>
+              <option value="running">Running</option>
+              <option value="completed">Completed</option>
+            </select>
+            <input type="submit" class="primary-btn" value="Add Course" />
+          </form>
+        </div>
       </div>
     </div>
-    <!-- <div class="popup">
-      <strong><span id="record-type">Course</span></strong
-      >&nbsp;added successfully!
-    </div> -->
+
+    <!-- Alert Popup -->
+    <div class="popup hidden" id="alert-popup">
+      <div class="message success">
+        <span id="record-type">Course</span>
+        added successfully!
+      </div>
+    </div>
     <script type="module" src="courses.js"></script>
   </body>
 </html>

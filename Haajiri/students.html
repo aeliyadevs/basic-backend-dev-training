@@ -10,9 +10,16 @@
   <body>
     <div class="wrapper">
       <h1>Haajirii</h1>
+      <p id="course-title">Title Loading</p>
+      <div id="title"></div>
       <div class="center">
-        <a href="student-form.html" class="primary-btn">Add new student</a>
-        <a href="#" class="primary-btn">Take Attendance</a>
+        <a href="index.html" class="primary-btn">Back to courses</a>
+        <!-- <a href="student-form.html" class="primary-btn">Add new student</a> -->
+        <button id="new-student-btn" class="primary-btn">
+          Add new student
+        </button>
+        <button id="attendance-btn" class="primary-btn">Take Attendance</button>
+        <!-- <a href="#" class="primary-btn">Take Attendance</a> -->
       </div>
       <table cellspacing="0" cellpadding="10">
         <thead>
@@ -130,7 +137,98 @@
         </tbody>
       </table>
     </div>
-    <div class="modal">
+    <ul id="studentList">
+      <!-- Area to display student names from the batabase -->
+    </ul>
+    <!-- Add Student Modal -->
+    <div class="modal-wrapper hidden" id="add-student-modal">
+      <div class="modal">
+        <img src="./icons/close.svg" class="close-icon" alt="" srcset="" />
+        <div class="modal-content">
+          <h2>Add Student</h2>
+          <form class="form" id="student-form" action="index.html">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="First Name"
+              required
+            />
+            <label for="middleName">Middle Name</label>
+            <input
+              type="text"
+              name="middleName"
+              id="middleName"
+              placeholder="Middle Name"
+            />
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Last Name"
+            />
+            <label for="course">Select Course</label>
+            <select name="course" id="course">
+              <option disabled selected>Select Course</option>
+              <!-- area to show all the courses title from the database -->
+            </select>
+            <input type="submit" class="primary-btn" value="Add Student" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Take Attendance Modal -->
+    <div class="modal-wrapper hidden" id="attendance-modal">
+      <div class="modal">
+        <img src="./icons/close.svg" class="close-icon" alt="" srcset="" />
+        <div class="modal-content">
+          <h2>Take Attendance</h2>
+          <form class="form">
+            <label for="attDate">Date</label>
+            <input type="date" name="attDate" id="" />
+            <label for="courseId">Course</label>
+            <input
+              type="text"
+              name="courseId"
+              id="active-course"
+              value="testing"
+              disabled
+            />
+            <div class="attendance">
+              <h3>Student's Attendance</h3>
+              <div class="studentItem">
+                <p for="student1">Min Devkota</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+              <div class="studentItem">
+                <p for="student1">Khagendra Budha Magar</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+              <div class="studentItem">
+                <p for="student1">Sunil Tamang</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+              <div class="studentItem">
+                <p for="student1">Migma Dorji Bhote</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+              <div class="studentItem">
+                <p for="student1">Roshan B.K.</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+              <div class="studentItem">
+                <p for="student1">Prabesh Upadhya</p>
+                <input type="checkbox" name="student1" id="" />
+              </div>
+            </div>
+            <input type="submit" class="primary-btn" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="modal">
       <div class="add-student-modal">
         <h2>Student Info</h2>
         <form id="student-form">
@@ -157,8 +255,15 @@
           <input type="submit" value="Add Student" />
         </form>
       </div>
+    </div> -->
+
+    <!-- Alert Popup -->
+    <div class="popup hidden" id="alert-popup">
+      <div class="message success">
+        <span id="record-type">Course</span>
+        added successfully!
+      </div>
     </div>
-    <ul id="studentList"></ul>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="students.js"></script>
   </body>
 </html>
