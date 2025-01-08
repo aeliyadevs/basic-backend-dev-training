@@ -1,20 +1,13 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import {
-  getFirestore,
   collection,
   getDocs,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// Import forebase configuration details
-import firebaseConfig from "./config.js";
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
 // Initialize Firestore
-const db = getFirestore(app);
+import { db, handleModalClose, showAlert } from "./common.js";
+
 // display course cards
 const courses = await getDocs(collection(db, "courses"));
 const coursesDiv = document.getElementById("courses");
@@ -85,7 +78,15 @@ courses.forEach((course) => {
 // 2. Add eventlistener "submit" and display data in the console
 // 3. Submit the data to firebase using "addDoc"
 
-// Add New Doc
+const courseModal = document.getElementById("add-course-modal");
+document
+  .getElementById("new-course-btn")
+  .addEventListener("click", function () {
+    courseModal.classList.remove("hidden");
+    handleModalClose();
+  });
+
+// Handle new course form submission
 const courseForm = document.getElementById("course-form");
 courseForm.addEventListener("submit", addCourse);
 async function addCourse(event) {
@@ -103,16 +104,11 @@ async function addCourse(event) {
   try {
     await addDoc(collection(db, "courses"), data);
     console.log("Success");
-    showAlert();
+    showAlert("success");
   } catch (error) {
     console.log(error);
+    showAlert("failed");
   }
-}
-
-document.getElementById("new-course-btn").addEventListener("click", showForm);
-function showForm() {
-  const courseModal = document.getElementById("add-course-modal");
-  courseModal.classList.remove("hidden");
 }
 
 const modalClose = document.querySelectorAll(".close-icon");
@@ -121,11 +117,3 @@ modalClose.forEach((icon) => {
     icon.parentElement.parentElement.classList.add("hidden");
   });
 });
-
-function showAlert() {
-  document.getElementById("alert-popup").classList.remove("hidden");
-  const alertTimeout = setTimeout(function () {
-    document.getElementById("alert-popup").classList.add("hidden");
-    clearTimeout(alertTimeout);
-  }, 5000);
-}

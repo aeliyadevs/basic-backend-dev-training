@@ -1,6 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import {
-  getFirestore,
   collection,
   getDocs,
   addDoc,
@@ -8,14 +6,8 @@ import {
   where,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// Import forebase configuration details
-import firebaseConfig from "./config.js";
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Firestore
-const db = getFirestore(app);
+// Import database
+import { db, handleModalClose, showAlert } from "./common.js";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -47,6 +39,7 @@ document
   .addEventListener("click", function () {
     studentModal.classList.remove("hidden");
     courseDropdown();
+    handleModalClose();
   });
 
 async function courseDropdown() {
@@ -62,8 +55,8 @@ async function courseDropdown() {
 }
 
 // Handle student form submission
-const form = document.getElementById("student-form");
-form.addEventListener("submit", addStudent);
+const studentForm = document.getElementById("student-form");
+studentForm.addEventListener("submit", addStudent);
 async function addStudent(e) {
   e.preventDefault();
   const data = {
@@ -78,6 +71,7 @@ async function addStudent(e) {
     studentModal.classList.add("hidden");
     showAlert();
   } catch (err) {
+    showAlert("failed");
     console.log(err);
   }
 }
@@ -88,13 +82,15 @@ document
   .getElementById("attendance-btn")
   .addEventListener("click", function () {
     attendanceModal.classList.remove("hidden");
+    attendanceModal.classList.add("active");
     document.getElementById("active-course").value = courseTitle;
+    handleModalClose();
+    // );
   });
 
-// Handle modal close button click event
-const modalClose = document.querySelectorAll(".close-icon");
-modalClose.forEach((icon) => {
-  icon.addEventListener("click", function () {
-    icon.parentElement.parentElement.classList.add("hidden");
-  });
+// Handle attendance form submission
+const attendanceForm = document.getElementById("attendance-form");
+attendanceForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  showAlert("success");
 });

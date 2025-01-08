@@ -1,31 +1,11 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-// import {
-//   getFirestore,
-//   addDoc,
-//   getDocs,
-//   collection,
-// } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
 import {
-  getFirestore,
   collection,
   getDocs,
   where,
   query,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-import firebaseConfig from "./config.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getFirestore(app);
-
-// console.log(database);
+import { db } from "./common.js";
 
 // const myStudents = await getDocs(collection(database, "students"));
 const url = new URL(window.location.href);
@@ -33,7 +13,7 @@ const params = new URLSearchParams(url.search);
 const courseId = params.get("courseId");
 const courseTitle = params.get("courseTitle");
 const myStudents = await getDocs(
-  query(collection(database, "students"), where("courseId", "==", courseId))
+  query(collection(db, "students"), where("courseId", "==", courseId))
 );
 document.getElementById("course-title").innerHTML = courseTitle;
 
