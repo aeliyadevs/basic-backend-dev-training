@@ -87,6 +87,15 @@ tbody tr:nth-child(even) {
   letter-spacing: 1px;
   color: #eeeeee;
 }
+.secondary-btn {
+  color: #3c87c8;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  margin-top: 10px;
+}
 .controls {
   display: flex;
   gap: 10px;
@@ -198,7 +207,7 @@ form .studentItem {
 form .studentItem p {
   flex: 1;
   margin: 5px;
-  font-size: 18px;
+  font-size: 17px;
 }
 form .studentItem input[type="checkbox"] {
   width: 25px;
@@ -210,6 +219,9 @@ form .studentItem input[type="checkbox"] {
   width: 400px;
   padding: 20px 50px 30px 50px;
   border-radius: 10px;
+}
+#select-student {
+  text-align: center;
 }
 .add-student-modal #student-form {
   display: flex;

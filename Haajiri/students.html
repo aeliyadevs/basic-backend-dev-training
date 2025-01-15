@@ -15,9 +15,7 @@
       <div class="center">
         <a href="index.html" class="primary-btn">Back to courses</a>
         <!-- <a href="student-form.html" class="primary-btn">Add new student</a> -->
-        <button id="new-student-btn" class="primary-btn">
-          Add new student
-        </button>
+        <button id="add-student-btn" class="primary-btn">Add Student</button>
         <button id="attendance-btn" class="primary-btn">Take Attendance</button>
         <!-- <a href="#" class="primary-btn">Take Attendance</a> -->
       </div>
@@ -145,37 +143,63 @@
       <div class="modal">
         <img src="./icons/close.svg" class="close-icon" alt="" srcset="" />
         <div class="modal-content">
-          <h2>Add Student</h2>
-          <form class="form" id="student-form" action="index.html">
-            <label for="firstName">First Name</label>
-            <input
-              type="text"
-              name="firstName"
-              id="firstName"
-              placeholder="First Name"
-              required
-            />
-            <label for="middleName">Middle Name</label>
-            <input
-              type="text"
-              name="middleName"
-              id="middleName"
-              placeholder="Middle Name"
-            />
-            <label for="lastName">Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              placeholder="Last Name"
-            />
-            <label for="course">Select Course</label>
-            <select name="course" id="course">
-              <option disabled selected>Select Course</option>
-              <!-- area to show all the courses title from the database -->
-            </select>
-            <input type="submit" class="primary-btn" value="Add Student" />
-          </form>
+          <div id="select-student">
+            <h2>Select Student</h2>
+            <form>
+              <select name="student" id="student">
+                <option value="" selected disabled>Select</option>
+                <option value="">Sunil Tamang</option>
+                <option value="">Roshan B.K.</option>
+                <option value="">Prabesh Upadhya</option>
+                <option value="">Migma Dorji Bhote</option>
+                <option value="">Khagendra Budha Magar</option>
+              </select>
+              <input type="submit" value="Add Student" class="primary-btn" />
+            </form>
+            <span><strong>OR</strong></span>
+            <br />
+            <button id="new-student" class="secondary-btn">
+              Add new student
+            </button>
+          </div>
+          <div id="create-student" class="hidden">
+            <h2>Add Student</h2>
+            <form class="form" id="student-form" action="index.html">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                required
+              />
+              <label for="middleName">Middle Name</label>
+              <input
+                type="text"
+                name="middleName"
+                id="middleName"
+                placeholder="Middle Name"
+              />
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+              />
+              <label for="course">Select Course</label>
+              <select name="course" id="course">
+                <option disabled selected>Select Course</option>
+                <!-- area to show all the courses title from the database -->
+              </select>
+              <input
+                type="submit"
+                class="primary-btn"
+                value="Add New Student"
+              />
+            </form>
+            <button id="go-back" class="secondary-btn">Go Back</button>
+          </div>
         </div>
       </div>
     </div>

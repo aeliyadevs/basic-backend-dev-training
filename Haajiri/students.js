@@ -11,8 +11,10 @@ import { db, handleModalClose, showAlert } from "./common.js";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
+console.log(params);
 const courseId = params.get("courseId");
 const courseTitle = params.get("courseTitle");
+// const myStudents = await getDocs(collection(db, "students"));
 const myStudents = await getDocs(
   query(collection(db, "students"), where("courseId", "==", courseId))
 );
@@ -35,7 +37,7 @@ myStudents.forEach((student) => {
 // student modal
 const studentModal = document.getElementById("add-student-modal");
 document
-  .getElementById("new-student-btn")
+  .getElementById("add-student-btn")
   .addEventListener("click", function () {
     studentModal.classList.remove("hidden");
     courseDropdown();
@@ -53,6 +55,17 @@ async function courseDropdown() {
     courseDropdown.appendChild(option);
   });
 }
+
+//
+document.getElementById("new-student").addEventListener("click", function () {
+  document.getElementById("select-student").classList.add("hidden");
+  document.getElementById("create-student").classList.remove("hidden");
+});
+
+document.getElementById("go-back").addEventListener("click", function () {
+  document.getElementById("select-student").classList.remove("hidden");
+  document.getElementById("create-student").classList.add("hidden");
+});
 
 // Handle student form submission
 const studentForm = document.getElementById("student-form");
