@@ -1,9 +1,13 @@
 import {
   collection,
+  doc,
   getDocs,
   addDoc,
+  updateDoc,
   query,
   where,
+  arrayUnion,
+  arrayRemove,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Import database
@@ -11,17 +15,22 @@ import { db, handleModalClose, showAlert } from "./common.js";
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
-console.log(params);
+// console.log(params);
 const courseId = params.get("courseId");
 const courseTitle = params.get("courseTitle");
-// const myStudents = await getDocs(collection(db, "students"));
-const myStudents = await getDocs(
-  query(collection(db, "students"), where("courseId", "==", courseId))
-);
 document.getElementById("course-title").innerHTML = courseTitle;
 
+// function to get students who are  enrolled to the selected course
+async function enrolledStudents() {
+  const students = await getDocs(
+    query(collection(db, "students"), where("courseId", "==", courseId))
+  );
+  return students;
+}
+const enrolled = await enrolledStudents();
+
 let count = 0;
-myStudents.forEach((student) => {
+enrolled.forEach((student) => {
   let studentRow = document.createElement("tr");
   let sn = document.createElement("td");
   sn.innerHTML = ++count;
@@ -29,10 +38,38 @@ myStudents.forEach((student) => {
   let studentName = document.createElement("td");
   studentName.className = "name-col";
   studentName.innerHTML =
-    student.data().firstName + " " + student.data().lastName;
+    student.data().firstName +
+    " " +
+    student.data().middleName +
+    " " +
+    student.data().lastName;
   studentRow.appendChild(studentName);
   document.getElementById("studentList").appendChild(studentRow);
 });
+
+// function to get students who are not yet enrolled to the selected course
+async function notEnrolledStudents() {
+  const students = await getDocs(
+    query(collection(db, "students"), where("courseId", "!=", courseId))
+  );
+  return students;
+}
+const notEnrolled = await notEnrolledStudents();
+
+// add notEnrolled students to the add student dropdown
+function studentDropdown() {
+  notEnrolled.forEach((student) => {
+    const option = document.createElement("option");
+    option.value = student.id;
+    option.innerHTML =
+      student.data().firstName +
+      " " +
+      student.data().middleName +
+      " " +
+      student.data().lastName;
+    document.getElementById("student-dropdown").appendChild(option);
+  });
+}
 
 // student modal
 const studentModal = document.getElementById("add-student-modal");
@@ -40,6 +77,7 @@ document
   .getElementById("add-student-btn")
   .addEventListener("click", function () {
     studentModal.classList.remove("hidden");
+    studentDropdown();
     courseDropdown();
     handleModalClose();
   });
@@ -107,3 +145,19 @@ attendanceForm.addEventListener("submit", function (e) {
   e.preventDefault();
   showAlert("success");
 });
+
+async function addToArray() {
+  await updateDoc(doc(db, "students", "uH3S0yfdXtstKpV8yMgM"), {
+    courses: arrayUnion("uTViiSPy4nwTqGkOoRnW", "HBJTutptq9LN1hTMGuJY"),
+  });
+  // console.log("added");
+}
+addToArray();
+
+async function removeFromArray() {
+  await updateDoc(doc(db, "students", "uH3S0yfdXtstKpV8yMgM"), {
+    courses: arrayRemove("uTViiSPy4nwTqGkOoRnW"),
+  });
+  // console.log("removed");
+}
+removeFromArray();
