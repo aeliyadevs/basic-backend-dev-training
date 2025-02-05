@@ -20,7 +20,7 @@ const courseId = params.get("courseId");
 const courseTitle = params.get("courseTitle");
 document.getElementById("course-title").innerHTML = courseTitle;
 
-// function to get students who are  enrolled to the selected course
+// function to get students who are enrolled to the selected course
 async function enrolledStudents() {
   const students = await getDocs(
     query(collection(db, "students"), where("courseId", "==", courseId))
@@ -105,7 +105,20 @@ document.getElementById("go-back").addEventListener("click", function () {
   document.getElementById("create-student").classList.add("hidden");
 });
 
-// Handle student form submission
+// Handle adding existing student
+const addExisting = document.getElementById("choose-student-form");
+addExisting.addEventListener("submit", addExistingStudent);
+async function addExistingStudent(e) {
+  e.preventDefault();
+  console.log(e.target.studentId.value);
+  const studentId = e.target.studentId.value;
+  // const newStudent = await addDoc(collection(db, "students"), data);
+  await updateDoc(doc(db, "students", studentId), {
+    courseIDs: arrayUnion(courseId),
+  });
+}
+
+// Handle new student form submission
 const studentForm = document.getElementById("student-form");
 studentForm.addEventListener("submit", addStudent);
 async function addStudent(e) {
