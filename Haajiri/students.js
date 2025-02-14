@@ -23,7 +23,10 @@ document.getElementById("course-title").innerHTML = courseTitle;
 // function to get students who are enrolled to the selected course
 async function enrolledStudents() {
   const students = await getDocs(
-    query(collection(db, "students"), where("courseId", "==", courseId))
+    query(
+      collection(db, "students"),
+      where("courseIDs", "array-contains", courseId)
+    )
   );
   return students;
 }
@@ -49,10 +52,15 @@ enrolled.forEach((student) => {
 
 // function to get students who are not yet enrolled to the selected course
 async function notEnrolledStudents() {
-  const students = await getDocs(
-    query(collection(db, "students"), where("courseId", "!=", courseId))
-  );
-  return students;
+  const students = await getDocs(collection(db, "students"));
+  let notIncluded = [];
+  students.forEach((student) => {
+    // console.log(student.data().courseIDs.includes(courseId));
+    if (!student.data().courseIDs.includes(courseId)) {
+      notIncluded.push(student);
+    }
+  });
+  return notIncluded;
 }
 const notEnrolled = await notEnrolledStudents();
 
@@ -116,6 +124,9 @@ async function addExistingStudent(e) {
   await updateDoc(doc(db, "students", studentId), {
     courseIDs: arrayUnion(courseId),
   });
+  console.log("updated");
+  showAlert("success");
+  handleModalClose();
 }
 
 // Handle new student form submission
@@ -148,6 +159,32 @@ document
     attendanceModal.classList.remove("hidden");
     attendanceModal.classList.add("active");
     document.getElementById("active-course").value = courseTitle;
+
+    // Generate students for attendance
+    // console.log(enrolled);
+    enrolled.forEach((student) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "studentItem";
+
+      const label = document.createElement("label");
+      label.for = student.data().firstName;
+      label.innerHTML =
+        student.data().firstName +
+        " " +
+        student.data().middleName +
+        " " +
+        student.data().lastName;
+      itemDiv.appendChild(label);
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = student.data().firstName;
+      checkbox.value = student.id;
+      itemDiv.appendChild(checkbox);
+
+      document.getElementById("attendanceArea").appendChild(itemDiv);
+    });
+
     handleModalClose();
     // );
   });
@@ -156,7 +193,21 @@ document
 const attendanceForm = document.getElementById("attendance-form");
 attendanceForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  showAlert("success");
+  try {
+    enrolled.forEach((student) => {
+      addDoc(collection(db, "attendance"), {
+        studentId: student.id,
+        courseId: courseId,
+        date: e.target.attDate.value,
+        present: e.target[student.data().firstName].checked,
+      });
+    });
+    showAlert("success");
+    handleModalClose();
+  } catch (err) {
+    showAlert("failed");
+    console.log(err);
+  }
 });
 
 async function addToArray() {

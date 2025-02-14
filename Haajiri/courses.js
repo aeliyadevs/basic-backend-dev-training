@@ -10,7 +10,6 @@ import { db, handleModalClose, showAlert } from "./common.js";
 
 // display course cards
 const courses = await getDocs(collection(db, "courses"));
-const coursesDiv = document.getElementById("courses");
 courses.forEach((course) => {
   // console.log(course.data());
   const courseDiv = document.createElement("div");

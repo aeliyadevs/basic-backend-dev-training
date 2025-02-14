@@ -116,42 +116,42 @@
         <div class="modal-content">
           <h2>Take Attendance</h2>
           <form class="form" id="attendance-form">
-            <label for="attDate">Date</label>
-            <input type="date" name="attDate" id="" />
             <label for="courseId">Course</label>
             <input
               type="text"
               name="courseId"
               id="active-course"
-              value="testing"
+              value="......"
               disabled
             />
-            <div class="attendance">
+            <label for="attDate">Attendance Date</label>
+            <input type="date" name="attDate" id="" required />
+            <div class="attendance" id="attendanceArea">
               <h3>Student's Attendance</h3>
-              <div class="studentItem">
-                <p for="student1">Min Devkota</p>
+              <!-- <div class="studentItem">
+                <label for="student1">Min Devkota</label>
                 <input type="checkbox" name="student1" id="" />
               </div>
               <div class="studentItem">
-                <p for="student1">Khagendra Budha Magar</p>
+                <label for="student1">Khagendra Budha Magar</label>
                 <input type="checkbox" name="student1" id="" />
               </div>
               <div class="studentItem">
-                <p for="student1">Sunil Tamang</p>
+                <label for="student1">Sunil Tamang</label>
                 <input type="checkbox" name="student1" id="" />
               </div>
               <div class="studentItem">
-                <p for="student1">Migma Dorji Bhote</p>
+                <label for="student1">Migma Dorji Bhote</label>
                 <input type="checkbox" name="student1" id="" />
               </div>
               <div class="studentItem">
-                <p for="student1">Roshan B.K.</p>
+                <label for="student1">Roshan B.K.</label>
                 <input type="checkbox" name="student1" id="" />
               </div>
               <div class="studentItem">
-                <p for="student1">Prabesh Upadhya</p>
+                <label for="student1">Prabesh Upadhya</label>
                 <input type="checkbox" name="student1" id="" />
-              </div>
+              </div> -->
             </div>
             <input type="submit" class="primary-btn" value="Submit" />
           </form>
